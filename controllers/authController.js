@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const { body, validationResult } = require("express-validator");
-const { Register, getUserByEmail } = require("../services/auth");
+const { Register, getUserByEmail } = require("../services/authService");
 
 
 module.exports = {
@@ -77,9 +77,15 @@ module.exports = {
             const confirmPassword = user.confirmPassword(data.password);
 
             if (confirmPassword) {
+
+                user.password = "";
+
+                const token = user.generateToken("clinton", "1h");
+
                 return res.status(200).json({
                     message: "login succes",
-                    user: user
+                    user: user,
+                    token: token
                 });
             } else {
                 return res.json({

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 19, 2024 at 06:47 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Host: 127.0.0.1
+-- Generation Time: Nov 03, 2024 at 06:07 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `jobs`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` int(11) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `description` text NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `title`, `description`, `createdAt`, `updatedAt`) VALUES
+(1, 'Job 1', 'This is new job', '2024-10-20 17:47:37', '2024-10-20 17:47:37'),
+(2, 'Job 1', 'This is new job', '2024-10-20 17:48:47', '2024-10-20 17:48:47'),
+(3, 'Job 2', 'This is job 2', '2024-10-20 18:42:57', '2024-10-20 18:42:57');
 
 -- --------------------------------------------------------
 
@@ -52,6 +75,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`, `createdAt`,
 --
 
 --
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -61,6 +90,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
