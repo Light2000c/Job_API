@@ -2,28 +2,26 @@ const { body, param } = require("express-validator");
 
 
 
-exports.getJobValidator = () => {
+exports.getSummaryValidator = () => {
     return [
         param("id").notEmpty().withMessage("Id is required").isInt().withMessage("Id must be an Integer"),
     ]
 };
 
-exports.createJobValidator = () => {
+exports.createSummaryValidator = () => {
     return [
-        body("title").notEmpty().withMessage("Title is required"),
-        body("description").notEmpty().withMessage("Description is required"),
+        body("content").notEmpty().withMessage("content is required"),
     ]
 };
 
-exports.updateJobValidator = () => {
+exports.updateSummaryValidator = () => {
     return [
         param("id").notEmpty().withMessage("Id is required").isInt().withMessage("Id must be an Integer"),
-        body("title").notEmpty().withMessage("Title is required"),
-        body("description").notEmpty().withMessage("Description is required"),
+        body("content").notEmpty().withMessage("content is required"),
     ]
 };
 
-exports.deleteJobValidator = () => {
+exports.deleteSummaryValidator = () => {
     return [
         param("id").notEmpty().withMessage("Id is required").isInt().withMessage("Id must be an Integer"),
     ]

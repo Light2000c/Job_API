@@ -2,10 +2,12 @@ const express = require("express");
 const routes = require("./routes/router");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const sequelize = require("./config/sequelize");
 
 require("dotenv").config();
 
 const app = express();
+
 
 app.use(cors({
     origin: '*',
